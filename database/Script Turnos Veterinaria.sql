@@ -14,6 +14,11 @@ CREATE TABLE dueno (
     genero ENUM('Masculino', 'Femenino', 'Otro') NOT NULL,
     fecha_nacimiento DATE NULL
 );
+INSERT INTO dueno (dni, nombre, apellido, telefono, direccion, genero, fecha_nacimiento)
+VALUES 
+('30111222', 'Carla', 'Fernández', '1122334455', 'Calle 123', 'Femenino', '1985-06-10'),
+('30222333', 'Luciano', 'Martínez', '1133445566', 'Av. Siempre Viva 742', 'Masculino', '1990-09-15');
+
 
 -- tabla paciente
 CREATE TABLE paciente (
@@ -31,6 +36,11 @@ CREATE TABLE paciente (
     id_dueno INT NOT NULL,
     FOREIGN KEY (id_dueno) REFERENCES dueno(id_dueno)
 );
+INSERT INTO paciente (nombre, tipo_animal, especie, raza, sexo, color, peso_actual, fecha_nacimiento, estado_reproductivo, descripcion_clinica, id_dueno)
+VALUES 
+('Toby', 'Doméstico', 'Canis lupus familiaris', 'Labrador', 'Macho', 'Marrón', 30.5, '2019-03-20', 'Castrado', 'Sin antecedentes clínicos', 1),
+('Mishi', 'Doméstico', 'Felis catus', 'Siames', 'Hembra', 'Gris', 4.3, '2020-07-15', 'Esterilizado', 'Última vacuna aplicada', 2);
+
 
 -- tabla veterinario
 CREATE TABLE veterinario (
@@ -44,6 +54,11 @@ CREATE TABLE veterinario (
     fecha_nacimiento DATE NOT NULL,
     especialidad VARCHAR(100) NOT NULL
 );
+INSERT INTO veterinario (dni, nombre, apellido, telefono, direccion, genero, fecha_nacimiento, especialidad)
+VALUES 
+('20111222', 'Soledad', 'Pérez', '1155667788', 'Diag. 74 Nº 1111', 'Femenino', '1980-02-05', 'Clínica General'),
+('20222333', 'Martín', 'Gómez', '1166778899', 'Calle Falsa 123', 'Masculino', '1983-11-20', 'Cirugía');
+
 
 -- tabla turno
 CREATE TABLE turno (
@@ -61,6 +76,10 @@ CREATE TABLE turno (
     FOREIGN KEY (id_veterinario) REFERENCES veterinario(id_veterinario),
     FOREIGN KEY (id_paciente) REFERENCES paciente(id_paciente)
 );
+INSERT INTO turno (fecha, hora_inicio, duracion_minutos, estado, tipo_consulta, descripcion, id_veterinario, id_paciente)
+VALUES 
+('2025-07-10', '10:00:00', 30, 'Pendiente', 'Consulta general', 'Revisión anual', 1, 1);
+
 
 -- tabla auditoria_turnos
 CREATE TABLE auditoria_turnos (
@@ -80,3 +99,4 @@ CREATE TABLE recordatorio_turno (
     fecha_generacion DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (id_turno) REFERENCES turno(id_turno)
 );
+
