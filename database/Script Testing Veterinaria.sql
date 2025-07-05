@@ -1,14 +1,3 @@
--- ------------------------------------------------------------
--- Prueba de solapamiento de turnos
--- ------------------------------------------------------------
--- Intenta insertar un turno que se superpone con otro ya existente
--- para comprobar que el trigger de solapamiento lo bloquee.
-USE huellitas_traviesas;
-INSERT INTO turno (fecha, hora_inicio, duracion_minutos, estado, tipo_consulta, descripcion, id_veterinario, id_paciente)
-VALUES 
-('2025-07-10', '10:15:00', 30, 'Pendiente', 'Consulta de control', 'Chequeo general', 1, 2);
-
-
 -- ----------------------------------------------------------------
 -- Prueba del trigger de auditoría y recordatorio al insertar turno
 -- ----------------------------------------------------------------
@@ -18,7 +7,18 @@ VALUES
 USE huellitas_traviesas;
 INSERT INTO turno (fecha, hora_inicio, duracion_minutos, estado, tipo_consulta, descripcion, id_veterinario, id_paciente)
 VALUES 
-('2025-07-10', '12:00:00', 30, 'Pendiente', 'Consulta general', 'Revisión anual', 1, 1);
+('2025-07-10', '09:00:00', 30, 'Pendiente', 'Consulta general', 'Revisión anual', 1, 1);
+
+
+-- ------------------------------------------------------------
+-- Prueba de solapamiento de turnos
+-- ------------------------------------------------------------
+-- Intenta insertar un turno que se superpone con otro ya existente
+-- para comprobar que el trigger de solapamiento lo bloquee.
+USE huellitas_traviesas;
+INSERT INTO turno (fecha, hora_inicio, duracion_minutos, estado, tipo_consulta, descripcion, id_veterinario, id_paciente)
+VALUES 
+('2025-07-10', '09:15:00', 30, 'Pendiente', 'Consulta de control', 'Chequeo general', 1, 2);
 
 
 -- ---------------------------------------------------------------------------------------------
@@ -28,5 +28,5 @@ VALUES
 -- registre el cambio en la tabla 'auditoria_turnos'.
 USE huellitas_traviesas;
 UPDATE turno
-SET hora_inicio = '22:00:00', duracion_minutos = 10
+SET hora_inicio = '17:00:00', duracion_minutos = 15
 WHERE id_turno = 1;
