@@ -1,7 +1,9 @@
 USE huellitas_traviesas;
 
 
--- vista turnos detallados
+-- ----------------------------------------------
+-- Vista Turnos Detallados
+-- ----------------------------------------------
 CREATE OR REPLACE VIEW vista_turnos_detallados AS
 SELECT
     t.id_turno,
@@ -24,7 +26,9 @@ JOIN dueno d ON p.id_dueno = d.id_dueno
 JOIN veterinario v ON t.id_veterinario = v.id_veterinario;
 
 
--- vista auditoria resumida
+-- ------------------------------------------------------
+-- Vista Auditoria Resumida
+-- ------------------------------------------------------
 CREATE OR REPLACE VIEW vista_auditoria_resumida AS
 SELECT
     a.id_auditoria,
@@ -41,7 +45,9 @@ LEFT JOIN turno t ON a.id_turno = t.id_turno
 LEFT JOIN veterinario v ON t.id_veterinario = v.id_veterinario;
 
 
--- vista turnos por veterinario
+-- ----------------------------------------------------
+-- Vista Turnos por Veterinario
+-- ----------------------------------------------------
 CREATE OR REPLACE VIEW vista_turnos_por_veterinario AS
 SELECT
     v.id_veterinario,
@@ -56,4 +62,3 @@ SELECT
 FROM turno t
 JOIN veterinario v ON t.id_veterinario = v.id_veterinario
 JOIN paciente p ON t.id_paciente = p.id_paciente;
-
