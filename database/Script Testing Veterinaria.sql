@@ -30,3 +30,22 @@ USE huellitas_traviesas;
 UPDATE turno
 SET hora_inicio = '17:00:00', duracion_minutos = 15
 WHERE id_turno = 1;
+
+
+-- ---------------------------------------------------
+-- Turnos para clínica veterinaria
+-- ---------------------------------------------------
+
+-- Contenidos conceptuales: Restricciones, triggers, concurrencia
+
+-- Objetivo: Organizar turnos evitando superposiciones
+
+-- Requisitos técnicos mínimos esperados:
+-- ☺ Tablas para veterinarios, pacientes, turnos
+-- ☺ Comprobación de coincidencias
+-- ☺ Trigger de recordatorio
+
+-- - Se observará del proyecto:
+-- - Prevención de conflictos.
+-- - Automatización útil.
+-- - Eficiencia del modelo.
