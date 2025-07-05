@@ -85,7 +85,10 @@ CREATE TABLE auditoria_turnos (
     fecha_evento DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     accion ENUM('INSERT', 'UPDATE') NOT NULL,
     usuario VARCHAR(100) NOT NULL,
-    detalles TEXT
+    detalles TEXT,
+    CONSTRAINT fk_auditoria_turno
+        FOREIGN KEY (id_turno)
+        REFERENCES turno(id_turno)
 );
 
 
@@ -97,4 +100,3 @@ CREATE TABLE recordatorio_turno (
     fecha_generacion DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (id_turno) REFERENCES turno(id_turno)
 );
-
