@@ -9,10 +9,10 @@ CREATE TABLE dueno (
     dni VARCHAR(20) NOT NULL UNIQUE,
     nombre VARCHAR(50) NOT NULL,
     apellido VARCHAR(50) NOT NULL,
-    telefono VARCHAR(20) NULL,
-    direccion VARCHAR(150) NULL,
+    telefono VARCHAR(20),
+    direccion VARCHAR(150),
     genero ENUM('Masculino', 'Femenino', 'Otro') NOT NULL,
-    fecha_nacimiento DATE NULL
+    fecha_nacimiento DATE
 );
 INSERT INTO dueno (dni, nombre, apellido, telefono, direccion, genero, fecha_nacimiento)
 VALUES 
@@ -26,13 +26,13 @@ CREATE TABLE paciente (
     nombre VARCHAR(100) NOT NULL,
     tipo_animal ENUM('Doméstico', 'Exótico', 'Silvestre', 'De granja') NOT NULL,
     especie VARCHAR(50) NOT NULL,
-    raza VARCHAR(50) NULL,
+    raza VARCHAR(50),
     sexo ENUM('Macho', 'Hembra') NOT NULL,
-    color VARCHAR(50) NULL,
-    peso_actual DECIMAL(5,2) NULL,
-    fecha_nacimiento DATE NULL,
+    color VARCHAR(50),
+    peso_actual DECIMAL(5,2),
+    fecha_nacimiento DATE,
     estado_reproductivo ENUM('Entero', 'Castrado', 'Esterilizado') NOT NULL,
-    descripcion_clinica TEXT NULL,
+    descripcion_clinica TEXT,
     id_dueno INT NOT NULL,
     FOREIGN KEY (id_dueno) REFERENCES dueno(id_dueno)
 );
@@ -48,8 +48,8 @@ CREATE TABLE veterinario (
     dni VARCHAR(20) NOT NULL UNIQUE,
     nombre VARCHAR(50) NOT NULL,
     apellido VARCHAR(50) NOT NULL,
-    telefono VARCHAR(20) NULL,
-    direccion VARCHAR(150) NULL,
+    telefono VARCHAR(20),
+    direccion VARCHAR(150),
     genero ENUM('Masculino', 'Femenino', 'Otro') NOT NULL,
     fecha_nacimiento DATE NOT NULL,
     especialidad VARCHAR(100) NOT NULL
@@ -67,8 +67,8 @@ CREATE TABLE turno (
     hora_inicio TIME NOT NULL,
     duracion_minutos INT NOT NULL,
     estado ENUM('Pendiente', 'Atendido', 'Reprogramado', 'Cancelado') DEFAULT 'Pendiente' NOT NULL,
-    tipo_consulta VARCHAR(50) NULL,
-    descripcion TEXT NULL,
+    tipo_consulta VARCHAR(50),
+    descripcion TEXT,
     fecha_creacion DATETIME DEFAULT CURRENT_TIMESTAMP,
     fecha_modificacion DATETIME ON UPDATE CURRENT_TIMESTAMP,
     id_veterinario INT NOT NULL,
@@ -76,20 +76,18 @@ CREATE TABLE turno (
     FOREIGN KEY (id_veterinario) REFERENCES veterinario(id_veterinario),
     FOREIGN KEY (id_paciente) REFERENCES paciente(id_paciente)
 );
-INSERT INTO turno (fecha, hora_inicio, duracion_minutos, estado, tipo_consulta, descripcion, id_veterinario, id_paciente)
-VALUES 
-('2025-07-10', '10:00:00', 30, 'Pendiente', 'Consulta general', 'Revisión anual', 1, 1);
 
 
 -- tabla auditoria_turnos
 CREATE TABLE auditoria_turnos (
     id_auditoria INT AUTO_INCREMENT PRIMARY KEY,
-    id_turno INT,
-    fecha_evento DATETIME DEFAULT CURRENT_TIMESTAMP,
-    accion ENUM('INSERT', 'UPDATE', 'DELETE'),
-    usuario VARCHAR(100),
+    id_turno INT NOT NULL,
+    fecha_evento DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    accion ENUM('INSERT', 'UPDATE') NOT NULL,
+    usuario VARCHAR(100) NOT NULL,
     detalles TEXT
 );
+
 
 -- tabla recordatorio_turno
 CREATE TABLE recordatorio_turno (
