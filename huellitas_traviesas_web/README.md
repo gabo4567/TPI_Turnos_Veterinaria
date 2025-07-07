@@ -46,31 +46,44 @@ huellitas_traviesas_web/
 
 ---
 
+Gracias por los detalles, Juan. Acá tenés el bloque corregido y formateado correctamente del README, incluyendo:
+
+* La sección de requisitos **fuera del bloque de código**,
+* Las **notas correctamente separadas**,
+* Y los **nombres de tus compañeros de grupo** añadidos profesionalmente.
+
+---
+
 ## 🔧 Requisitos para ejecutar localmente
 
-- Node.js instalado
-- MySQL con base de datos importada
-- Ejecutar:
+- Tener **Node.js** instalado
+- Tener **MySQL** en funcionamiento con la base de datos ya importada
+- Ejecutar los siguientes comandos desde la terminal:
 
 ```bash
 npm install
 node server.js
-Abrir http://localhost:3000 en el navegador.
+````
+
+Luego, abrir [http://localhost:3000](http://localhost:3000) en el navegador.
 
 ---
 
-📌 Notas
-Esta página no está diseñada con foco estético, sino funcional.
+## 📌 Notas
 
-Todos los datos son obtenidos de la base de datos real mediante consultas SQL.
-
-Este proyecto fue desarrollado como parte del trabajo práctico para la materia Base de Datos II.
-
-👨‍💻 Desarrollador
-Juan Gabriel Pared
-
-Proyecto académico - 2025
-
-Universidad Tecnológica Nacional (UTN), Sede ITG de Goya
+* Esta página **no está diseñada con foco estético**, sino **funcional**.
+* Todos los datos se obtienen directamente de la base de datos real mediante **consultas SQL**.
+* Proyecto desarrollado como parte del trabajo práctico para la materia **Base de Datos II**.
 
 ---
+
+## 👨‍💻 Equipo de Desarrollo
+
+* **Juan Gabriel Pared**
+* **Lucas Cáceres**
+* **Andrés Herrero**
+* **Juan Mill**
+
+📅 Año: 2025
+🏫 Universidad Tecnológica Nacional (UTN), Sede ITG de Goya
+
