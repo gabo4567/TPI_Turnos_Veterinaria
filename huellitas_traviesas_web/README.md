@@ -57,6 +57,8 @@ npm install
 node server.js
 Abrir http://localhost:3000 en el navegador.
 
+---
+
 📌 Notas
 Esta página no está diseñada con foco estético, sino funcional.
 
@@ -70,6 +72,5 @@ Juan Gabriel Pared
 Proyecto académico - 2025
 
 Universidad Tecnológica Nacional (UTN), Sede ITG de Goya
-
 
 ---
