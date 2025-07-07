@@ -1,0 +1,62 @@
+body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  background: #f0f0f0;
+  text-align: center;
+}
+
+#menu {
+  margin-bottom: 20px;
+}
+
+#menu button {
+  margin: 0 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+table {
+  margin: 0 auto;
+  border-collapse: collapse;
+  width: 90%;
+  max-width: 900px;
+}
+
+th, td {
+  border: 1px solid #aaa;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #ddd;
+}
+
+form {
+  margin: 20px auto;
+  width: 90%;
+  max-width: 600px;
+  background: white;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #aaa;
+  text-align: left;
+}
+
+form label {
+  display: block;
+  margin-top: 10px;
+}
+
+form input, form select, form textarea {
+  width: 100%;
+  padding: 7px;
+  margin-top: 5px;
+  box-sizing: border-box;
+}
+
+#message {
+  margin-top: 10px;
+  font-weight: bold;
+}
