@@ -6,6 +6,7 @@ El propósito de esta web es probar, visualizar y validar los datos almacenados 
 
 ---
 
+
 ## 📁 Estructura del Proyecto
 
 huellitas_traviesas_web/
@@ -18,6 +19,7 @@ huellitas_traviesas_web/
 ├── package.json           # Dependencias y configuración de Node.js
 ├── package-lock.json      # Lockfile generado por npm
 └── README.md              # (Este archivo)
+
 
 ---
 
