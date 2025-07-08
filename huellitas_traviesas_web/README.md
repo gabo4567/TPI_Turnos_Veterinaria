@@ -6,20 +6,18 @@ El propósito de esta web es probar, visualizar y validar los datos almacenados 
 
 ---
 
-
 ## 📁 Estructura del Proyecto
 
 huellitas_traviesas_web/
 ├── public/
-│   ├── index.html         # Página principal con menú y contenedor dinámico
-│   ├── style.css          # Estilos visuales básicos
-│   └── app.js             # Lógica de interacción y consumo de API (frontend)
-├── server.js              # Servidor Express con todos los endpoints
-├── db.js                  # Conexión a la base de datos MySQL
-├── package.json           # Dependencias y configuración de Node.js
-├── package-lock.json      # Lockfile generado por npm
-└── README.md              # (Este archivo)
-
+│ ├── index.html # Página principal con menú y contenedor dinámico
+│ ├── style.css # Estilos visuales básicos
+│ └── app.js # Lógica de interacción y consumo de API (frontend)
+├── server.js # Servidor Express con todos los endpoints
+├── db.js # Conexión a la base de datos MySQL
+├── package.json # Dependencias y configuración de Node.js
+├── package-lock.json # Lockfile generado por npm
+└── README.md # (Este archivo)
 
 ---
 
