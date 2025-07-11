@@ -17,7 +17,15 @@ CREATE TABLE dueno (
 INSERT INTO dueno (dni, nombre, apellido, telefono, direccion, genero, fecha_nacimiento)
 VALUES 
 ('30111222', 'Carla', 'Fernández', '1122334455', 'Calle 123', 'Femenino', '1985-06-10'),
-('30222333', 'Luciano', 'Martínez', '1133445566', 'Av. Siempre Viva 742', 'Masculino', '1990-09-15');
+('30222333', 'Luciano', 'Martínez', '1133445566', 'Av. Siempre Viva 742', 'Masculino', '1990-09-15'),
+('30333444', 'María', 'López', '1144556677', 'Mitre 123', 'Femenino', '1988-01-12'),
+('30444555', 'Jorge', 'Ramírez', '1166123456', 'San Martín 456', 'Masculino', '1975-04-22'),
+('30555666', 'Laura', 'Benítez', '1177001122', 'Belgrano 789', 'Femenino', '1993-07-30'),
+('30666777', 'Esteban', 'Suárez', '1144332211', 'Alsina 321', 'Masculino', '1982-10-05'),
+('30777888', 'Natalia', 'Torres', '1122113344', 'Rivadavia 890', 'Femenino', '1999-12-18'),
+('30888999', 'Fernando', 'Luna', '1133224455', 'Moreno 654', 'Masculino', '1986-05-09'),
+('30999000', 'Carolina', 'Méndez', '1199887766', 'Lavalle 111', 'Femenino', '1995-03-17'),
+('31000111', 'Alejandro', 'Paz', '1155332211', 'Sarmiento 321', 'Masculino', '1979-08-25');
 
 
 -- tabla paciente
@@ -36,10 +44,19 @@ CREATE TABLE paciente (
     id_dueno INT NOT NULL,
     FOREIGN KEY (id_dueno) REFERENCES dueno(id_dueno)
 );
+
 INSERT INTO paciente (nombre, tipo_animal, especie, raza, sexo, color, peso_actual, fecha_nacimiento, estado_reproductivo, descripcion_clinica, id_dueno)
 VALUES 
-('Toby', 'Doméstico', 'Canis lupus familiaris', 'Labrador', 'Macho', 'Marrón', 30.5, '2019-03-20', 'Castrado', 'Sin antecedentes clínicos', 1),
-('Mishi', 'Doméstico', 'Felis catus', 'Siames', 'Hembra', 'Gris', 4.3, '2020-07-15', 'Esterilizado', 'Última vacuna aplicada', 2);
+('Toby', 'Doméstico', 'Perro', 'Labrador', 'Macho', 'Marrón', 30.5, '2019-03-20', 'Castrado', 'Sin antecedentes clínicos', 1),
+('Mishi', 'Doméstico', 'Gato', 'Siames', 'Hembra', 'Gris', 4.3, '2020-07-15', 'Esterilizado', 'Última vacuna aplicada', 2),
+('Firulais', 'Doméstico', 'Perro', 'Bulldog', 'Macho', 'Blanco', 20.0, '2021-01-10', 'Entero', 'Consulta por otitis', 3),
+('Pelusa', 'Doméstico', 'Gato', 'Persa', 'Hembra', 'Negro', 3.2, '2022-06-01', 'Esterilizado', 'Revisión postoperatoria', 4),
+('Rex', 'Doméstico', 'Perro', 'Pastor Alemán', 'Macho', 'Marrón y negro', 35.0, '2018-09-25', 'Castrado', 'Control de peso', 5),
+('Luna', 'Doméstico', 'Gato', 'Mestiza', 'Hembra', 'Gris', 4.0, '2020-11-11', 'Entero', 'Vacunación anual', 6),
+('Coco', 'Exótico', 'Conejo', 'Enano', 'Macho', 'Blanco y marrón', 1.5, '2023-02-02', 'Entero', 'Chequeo general', 7),
+('Tango', 'Doméstico', 'Perro', 'Dálmata', 'Macho', 'Blanco con manchas negras', 25.0, '2019-05-20', 'Castrado', 'Dermatitis tratada', 8),
+('Nina', 'Doméstico', 'Gato', 'Bengala', 'Hembra', 'Dorada', 3.8, '2021-07-07', 'Esterilizado', 'Vacunas completas', 9),
+('Moro', 'De granja', 'Caballo', 'Criollo', 'Macho', 'Negro', 400.0, '2015-03-15', 'Entero', 'Lesión en una pata', 10);
 
 
 -- tabla veterinario
@@ -57,7 +74,10 @@ CREATE TABLE veterinario (
 INSERT INTO veterinario (dni, nombre, apellido, telefono, direccion, genero, fecha_nacimiento, especialidad)
 VALUES 
 ('20111222', 'Soledad', 'Pérez', '1155667788', 'Diag. 74 Nº 1111', 'Femenino', '1980-02-05', 'Clínica General'),
-('20222333', 'Martín', 'Gómez', '1166778899', 'Calle Falsa 123', 'Masculino', '1983-11-20', 'Cirugía');
+('20222333', 'Martín', 'Gómez', '1166778899', 'Calle Falsa 123', 'Masculino', '1983-11-20', 'Cirugía'),
+('20333444', 'Valeria', 'Nuñez', '1144001122', 'Av. Libertad 222', 'Femenino', '1987-03-11', 'Animales Exóticos'),
+('20444555', 'Ramiro', 'Correa', '1155112233', 'Av. 60 N°456', 'Masculino', '1978-08-19', 'Animales de granja'),
+('20555666', 'Gabriela', 'Ibarra', '1166223344', 'Calle 7 N°789', 'Femenino', '1992-11-03', 'Clínica General');
 
 
 -- tabla turno
