@@ -26,32 +26,27 @@ Todas las tablas están correctamente vinculadas mediante claves foráneas, con 
 ---
 
 ## ⚙️ Automatización mediante triggers
-El archivo Script-Triggers-Veterinaria.sql contiene cinco triggers, todos correctamente documentados:
+- El archivo Script-Triggers-Veterinaria.sql contiene cinco triggers, todos correctamente documentados:
 
-🛎️ trg_crear_recordatorio
-Se ejecuta después de insertar un turno.
+### 🛎️ trg_crear_recordatorio
+- Se ejecuta después de insertar un turno.
+- Genera automáticamente un mensaje en la tabla recordatorio_turno si el estado del turno es 'Pendiente' o 'Reprogramado'.
 
-Genera automáticamente un mensaje en la tabla recordatorio_turno si el estado del turno es 'Pendiente' o 'Reprogramado'.
+### 🔁 trg_actualizar_recordatorio
+- Se ejecuta después de actualizar un turno.
+- Modifica el mensaje del recordatorio si se cambia la fecha u hora del turno y el estado sigue siendo 'Pendiente' o 'Reprogramado'.
 
-🔁 trg_actualizar_recordatorio
-Se ejecuta después de actualizar un turno.
+### 🚫 verificar_turno_superpuesto
+- Se ejecuta antes de insertar un turno.
+- Previene superposición horaria para un mismo veterinario, calculando el rango entre hora_inicio y duracion_minutos. Lanza un error si hay conflicto.
 
-Modifica el mensaje del recordatorio si se cambia la fecha u hora del turno y el estado sigue siendo 'Pendiente' o 'Reprogramado'.
+### 📥 audit_turno_insert
+- Se ejecuta después de insertar un turno.
+- Registra automáticamente la acción en la tabla auditoria_turnos, incluyendo usuario, fecha y descripción.
 
-🚫 verificar_turno_superpuesto
-Se ejecuta antes de insertar un turno.
-
-Previene superposición horaria para un mismo veterinario, calculando el rango entre hora_inicio y duracion_minutos. Lanza un error si hay conflicto.
-
-📥 audit_turno_insert
-Se ejecuta después de insertar un turno.
-
-Registra automáticamente la acción en la tabla auditoria_turnos, incluyendo usuario, fecha y descripción.
-
-✏️ audit_turno_update
-Se ejecuta después de actualizar un turno.
-
-Guarda en la auditoría la modificación, con los valores anteriores y actuales del turno.
+### ✏️ audit_turno_update
+- Se ejecuta después de actualizar un turno.
+- Guarda en la auditoría la modificación, con los valores anteriores y actuales del turno.
 
 ---
 
