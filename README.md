@@ -25,7 +25,7 @@ Todas las tablas están correctamente vinculadas mediante claves foráneas, con 
 
 ---
 
-##⚙️ Automatización mediante triggers
+## ⚙️ Automatización mediante triggers
 El archivo Script-Triggers-Veterinaria.sql contiene cinco triggers, todos correctamente documentados:
 
 🛎️ trg_crear_recordatorio
